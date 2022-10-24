@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Frontend Mentor | Interactive pricing component</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="head">
+				<h1 class="head__heading strong__font">
+					Simple, traffic-based pricing
+				</h1>
+				<p class="head__text">
+					Sign-up for our 30-day trial. No credit card required.
+				</p>
+			</div>
+
+			<div class="card">
+				<div class="card__interactive">
+					<!-- pagevews -->
+					<div class="card__item pagevews">
+						<div><span id="pageviews">100k</span> Pageviews</div>
+					</div>
+					<!-- card price per month -->
+					<div class="card__item price">
+						<div class="big__text">
+							$<span id="price">16.00</span>
+						</div>
+						<span> /month </span>
+					</div>
+					<!-- card range -->
+					<div class="card__item range">
+						<input
+							type="range"
+							id="range"
+							name="vol"
+							min="1"
+							max="5" />
+					</div>
+				</div>
+
+				<!-- toggle -->
+				<div class="card__toggle toggle">
+					<!-- toggle text -->
+
+					<div class="toggle__text toggle__inner">
+						Monthly Billing
+					</div>
+					<!-- toggle btn -->
+					<div class="toggle__btn toggle__inner">
+						<div class="toggle__btn_circle"></div>
+					</div>
+					<!-- toggle text -->
+					<div class="toggle__text toggle__inner">
+						<span> Yearly Billing </span>
+						<span class="discount">25% discount</span>
+					</div>
+				</div>
+				<!-- card footer -->
+				<div class="card__footer footer">
+					<div class="footer__inner">
+						<ul class="footer__list">
+							<li class="footer__item">Unlimited websites</li>
+							<li class="footer__item">100% data ownership</li>
+							<li class="footer__item">Email reports</li>
+						</ul>
+					</div>
+					<div class="footer__inner">
+						<button class="footer__btn">Start my trial</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="attribution">
+			Challenge by
+			<a
+				href="https://www.frontendmentor.io?ref=challenge"
+				target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#" target="_blank">Alexei</a>.
+		</div>
+		<script src="script/script.js"></script>
+	</body>
+</html>
