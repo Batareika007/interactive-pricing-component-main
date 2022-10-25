@@ -1,12 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap"); /********** Range Input Styles **********/
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+/********** Range Input Styles **********/
 /*Range Reset*/
 input[type=range] {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
-  background: transparent;
-  cursor: pointer;
-  width: 15rem;
+  background-color: hsl(224deg, 65%, 95%);
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(hsl(174deg, 77%, 80%)), to(hsl(174deg, 77%, 80%)));
+  background-image: linear-gradient(hsl(174deg, 77%, 80%), hsl(174deg, 77%, 80%));
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
 }
 
 /* Removes default focus */
@@ -17,52 +23,67 @@ input[type=range]:focus {
 /***** Chrome, Safari, Opera and Edge Chromium styles *****/
 /* slider track */
 input[type=range]::-webkit-slider-runnable-track {
-  background-color: #053a5f;
-  border-radius: 0.5rem;
-  height: 0.5rem;
+  border-radius: 10px;
+  height: 10px;
 }
 
 /* slider thumb */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  margin-top: -12px; /* Centers thumb on the track */
+  margin-top: -15px; /* Centers thumb on the track */
   /*custom styles*/
-  background-color: #5cd5eb;
-  height: 2rem;
-  width: 1rem;
+  background-color: hsl(174deg, 77%, 80%);
+  background-image: url(../images/icon-slider.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb:active {
+  background-color: hsl(174deg, 86%, 45%);
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 
-input[type=range]:focus::-webkit-slider-thumb {
-  border: 1px solid #053a5f;
-  outline: 3px solid #053a5f;
-  outline-offset: 0.125rem;
+/* if need custom focus use it 
+input[type="range"]:focus::-webkit-slider-thumb {
+	border: 1px solid #053a5f;
+	outline: 3px solid #053a5f;
+	outline-offset: 0.125rem;
 }
-
-/******** Firefox styles ********/
+*/
+/*************************** Firefox styles *********************/
 /* slider track */
-input[type=range]::-moz-range-track {
-  background-color: #053a5f;
-  border-radius: 0.5rem;
-  height: 0.5rem;
-}
-
 /* slider thumb */
 input[type=range]::-moz-range-thumb {
   border: none; /*Removes extra border that FF applies*/
   border-radius: 0; /*Removes default border-radius that FF applies*/
+  margin-top: -15px; /* Centers thumb on the track */
   /*custom styles*/
-  background-color: #5cd5eb;
-  height: 2rem;
-  width: 1rem;
+  background-color: hsl(174deg, 77%, 80%);
+  background-image: url(../images/icon-slider.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb:active {
+  background-color: hsl(174deg, 86%, 45%);
+  cursor: grabbing;
 }
 
-input[type=range]:focus::-moz-range-thumb {
-  border: 1px solid #053a5f;
-  outline: 3px solid #053a5f;
-  outline-offset: 0.125rem;
+/* if need custom focus use it 
+input[type="range"]:focus::-moz-range-thumb {
+	border: 1px solid #053a5f;
+	outline: 3px solid #053a5f;
+	outline-offset: 0.125rem;
 }
-
+*/
 *,
 *::after,
 *::before {
@@ -201,12 +222,16 @@ body {
 }
 .toggle__btn_circle {
   position: absolute;
-  right: 4px;
   left: 4px;
   height: 16px;
   width: 16px;
   border-radius: 50%;
   background-color: white;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.toggle__btn_circle.active {
+  left: 20px;
 }
 
 .discount {
