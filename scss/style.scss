@@ -28,8 +28,9 @@ body {
 
 .container {
 	max-width: 1440px;
+	width: 100%;
 	margin: 0 auto;
-	padding: 0 5%;
+	padding: 0 1rem;
 }
 
 .strong__font {
@@ -56,8 +57,8 @@ body {
 	background: hsl(0, 0%, 100%);
 	overflow: hidden;
 	border-radius: 1rem;
-
 	margin-bottom: 2rem;
+	box-shadow: 0px 8px 12px 2px rgba(0, 0, 0, 0.241);
 	&__interactive {
 		padding: 2rem 3rem;
 		width: 100%;
@@ -185,10 +186,20 @@ body {
 
 // media
 @media screen and (max-width: 600px) {
+	body {
+		background-size: 100% 10%;
+	}
+	.head {
+		margin: 4vw 0;
+		font-size: 3vw;
+		padding: 12vw 0;
+	}
+
 	.card {
 		&__interactive {
 			text-align: center;
-			gap: 1rem;
+			gap: 3rem;
+			padding: 1rem;
 		}
 		&__item.pagevews {
 			order: 1;
@@ -203,8 +214,14 @@ body {
 	}
 
 	.toggle {
+		gap: 0;
+
 		&__text {
 			text-align: center;
+			flex: 1 0 auto;
+		}
+		&__btn {
+			flex: 1 0 40px;
 		}
 	}
 	.footer {
