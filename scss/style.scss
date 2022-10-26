@@ -8,6 +8,7 @@
 	padding: 0;
 	margin: 0;
 	border: 0;
+	outline: none;
 }
 
 body,
@@ -16,7 +17,7 @@ html {
 }
 
 body {
-	background-image: url(/images/bg-pattern.svg);
+	background-image: url(images/bg-pattern.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-color: hsl(230, 100%, 99%);
