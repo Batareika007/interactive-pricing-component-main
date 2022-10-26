@@ -103,7 +103,7 @@ html {
 }
 
 body {
-  background-image: url(images/bg-pattern.svg);
+  background-image: url(../images/bg-pattern.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-color: hsl(230deg, 100%, 99%);
@@ -126,7 +126,7 @@ body {
 
 .head {
   text-align: center;
-  background-image: url(images/pattern-circles.svg);
+  background-image: url(../images/pattern-circles.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
