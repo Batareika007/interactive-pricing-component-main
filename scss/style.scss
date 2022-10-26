@@ -68,8 +68,10 @@ body {
 		margin-bottom: 2rem;
 	}
 	&__item.pagevews {
+		position: relative;
 		flex: 1 1 50%;
 		text-transform: uppercase;
+		transition: all 0.3s;
 	}
 	&__item.price {
 		flex: 1 1 50%;
@@ -81,6 +83,14 @@ body {
 	&__item.range {
 		flex: 100%;
 	}
+	// #price,
+	// #pageviews,
+	.card__item {
+		&.active {
+			animation-name: intro;
+			animation-duration: 0.3s;
+		}
+	}
 }
 
 .toggle {
@@ -88,11 +98,15 @@ body {
 	justify-content: center;
 	margin-bottom: 2rem;
 	gap: 1rem;
+	align-items: center;
 	&__inner {
-		flex: 0 1 33%;
+		flex: 0 1 100%;
 	}
-	&__text {
+	&__text_left {
 		text-align: end;
+	}
+	&__text_right {
+		text-align: start;
 	}
 	&__btn {
 		cursor: pointer;
@@ -105,6 +119,7 @@ body {
 		align-items: center;
 		position: relative;
 		transition: background-color 0.5s ease;
+		flex: 1 0 40px;
 		&:hover {
 			background-color: hsl(174, 86%, 45%);
 		}
@@ -187,7 +202,7 @@ body {
 // media
 @media screen and (max-width: 600px) {
 	body {
-		background-size: 100% 10%;
+		background-size: 100% 120%;
 	}
 	.head {
 		margin: 4vw 0;
@@ -196,10 +211,11 @@ body {
 	}
 
 	.card {
+		font-size: 90%;
 		&__interactive {
 			text-align: center;
-			gap: 3rem;
-			padding: 1rem;
+			gap: 2rem;
+			padding: 2rem 1rem 0;
 		}
 		&__item.pagevews {
 			order: 1;
@@ -214,14 +230,10 @@ body {
 	}
 
 	.toggle {
-		gap: 0;
+		gap: 1rem;
 
 		&__text {
-			text-align: center;
 			flex: 1 0 auto;
-		}
-		&__btn {
-			flex: 1 0 40px;
 		}
 	}
 	.footer {
@@ -231,5 +243,18 @@ body {
 		&__list {
 			text-align: center;
 		}
+	}
+}
+
+@keyframes intro {
+	from {
+		transform: scale(0.5);
+		opacity: 0;
+		filter: blur(2px);
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+		filter: blur(0);
 	}
 }

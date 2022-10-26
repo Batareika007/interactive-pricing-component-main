@@ -4,27 +4,41 @@ const priceList2 = [8, 12, 16, 24, 36]
 const pageviews = document.getElementById("pageviews")
 const monthPrice = document.getElementById("price")
 const discountText = document.getElementById("discoutn-text")
-const toggle = document.getElementById("toggle")
+const toggleBtn = document.getElementById("toggle")
 const toggleBall = document.querySelector(".toggle__btn_circle")
+
+const addAnimation = () => {
+	document.querySelector(".pagevews").classList.add("active")
+	document.querySelector(".price").classList.add("active")
+	setTimeout(() => {
+		document.querySelector(".pagevews").classList.remove("active")
+		document.querySelector(".price").classList.remove("active")
+	}, "300")
+}
 
 const changePrice = (value) => {
 	if (toggle.classList.contains("active")) {
 		monthPrice.innerHTML = (priceList2[value] * 0.75).toFixed(2)
+		addAnimation()
 	} else {
 		monthPrice.innerHTML = priceList2[value].toFixed(2)
+		addAnimation()
 	}
 	pageviews.innerHTML = priceList[value]
+	addAnimation()
 }
 
-toggle.addEventListener("click", () => {
-	if (toggle.classList.contains("active")) {
-		toggle.classList.remove("active")
+toggleBtn.addEventListener("click", () => {
+	if (toggleBtn.classList.contains("active")) {
+		toggleBtn.classList.remove("active")
 		toggleBall.classList.remove("active")
 		monthPrice.innerHTML = (monthPrice.innerHTML / 0.75).toFixed(2)
+		addAnimation()
 	} else {
-		toggle.classList.add("active")
+		toggleBtn.classList.add("active")
 		toggleBall.classList.add("active")
 		monthPrice.innerHTML = (monthPrice.innerHTML * 0.75).toFixed(2)
+		addAnimation()
 	}
 })
 
@@ -37,7 +51,6 @@ const discountCangeText = () => {
 }
 
 discountCangeText()
-
 window.addEventListener("resize", discountCangeText)
 
 // input range style + price
@@ -52,18 +65,8 @@ function handleInputChange(e) {
 	const max = target.max
 	const val = target.value
 	target.style.backgroundSize = ((val - min) * 100) / (max - min) + "% 100%"
-	console.log(target.value)
-	if (target.value == 0) {
-		changePrice(target.value)
-	} else if (target.value == 1) {
-		changePrice(target.value)
-	} else if (target.value == 2) {
-		changePrice(target.value)
-	} else if (target.value == 3) {
-		changePrice(target.value)
-	} else if (target.value == 4) {
-		changePrice(target.value)
-	}
+
+	changePrice(target.value)
 }
 
 rangeInputs.forEach((input) => {

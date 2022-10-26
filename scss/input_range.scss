@@ -47,6 +47,7 @@ input[type="range"]::-webkit-slider-thumb {
 	width: $width_thumb;
 	border-radius: $width_thumb;
 	cursor: pointer;
+	box-shadow: 0 15px 12px 1px hsla(174, 86%, 45%, 0.544);
 	&:active {
 		background-color: hsl(174, 86%, 45%);
 		cursor: grabbing;

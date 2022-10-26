@@ -41,6 +41,8 @@ input[type=range]::-webkit-slider-thumb {
   width: 40px;
   border-radius: 40px;
   cursor: pointer;
+  -webkit-box-shadow: 0 15px 12px 1px hsla(174deg, 86%, 45%, 0.544);
+          box-shadow: 0 15px 12px 1px hsla(174deg, 86%, 45%, 0.544);
 }
 input[type=range]::-webkit-slider-thumb:active {
   background-color: hsl(174deg, 86%, 45%);
@@ -159,10 +161,13 @@ body {
   margin-bottom: 2rem;
 }
 .card__item.pagevews {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
   text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .card__item.price {
   -webkit-box-flex: 1;
@@ -184,6 +189,12 @@ body {
       -ms-flex: 100%;
           flex: 100%;
 }
+.card .card__item.active {
+  -webkit-animation-name: intro;
+          animation-name: intro;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
 
 .toggle {
   display: -webkit-box;
@@ -194,14 +205,20 @@ body {
           justify-content: center;
   margin-bottom: 2rem;
   gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .toggle__inner {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 33%;
-          flex: 0 1 33%;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
 }
-.toggle__text {
+.toggle__text_left {
   text-align: end;
+}
+.toggle__text_right {
+  text-align: start;
 }
 .toggle__btn {
   cursor: pointer;
@@ -219,6 +236,9 @@ body {
   position: relative;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 40px;
+          flex: 1 0 40px;
 }
 .toggle__btn:hover {
   background-color: hsl(174deg, 86%, 45%);
@@ -312,17 +332,20 @@ body {
 
 @media screen and (max-width: 600px) {
   body {
-    background-size: 100% 10%;
+    background-size: 100% 120%;
   }
   .head {
     margin: 4vw 0;
     font-size: 3vw;
     padding: 12vw 0;
   }
+  .card {
+    font-size: 90%;
+  }
   .card__interactive {
     text-align: center;
-    gap: 3rem;
-    padding: 1rem;
+    gap: 2rem;
+    padding: 2rem 1rem 0;
   }
   .card__item.pagevews {
     -webkit-box-ordinal-group: 2;
@@ -343,18 +366,12 @@ body {
             order: 2;
   }
   .toggle {
-    gap: 0;
+    gap: 1rem;
   }
   .toggle__text {
-    text-align: center;
     -webkit-box-flex: 1;
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
-  }
-  .toggle__btn {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 40px;
-            flex: 1 0 40px;
   }
   .footer {
     -webkit-box-pack: center;
@@ -368,5 +385,37 @@ body {
   }
   .footer__list {
     text-align: center;
+  }
+}
+@-webkit-keyframes intro {
+  from {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+@keyframes intro {
+  from {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
   }
 }
